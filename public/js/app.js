@@ -61,10 +61,32 @@ $('newAlbumForm').on('submit', function(event){
 });
 
 
+function buildSongsHtml(songs) {
+
+  console.log('rendering songs:', songs);
+
+  songs.forEach(function(song) {
+
+  var songHtml =
+  "               <!-- songs -->!" +
+  "               <li class='list-group-item'>" +
+  "                     <h4 class='inline-header'>Songs:</h4>" +
+  "                     <span class='song-trackNumber'>" + '-' + song.trackNumber + '-' + song.name  +  '-' +
+  "               </li>"  ;                              
+ 
+  console.log(songHtml);
+  });
+
+ }
+
 
 // this function takes a single album and renders it to the page
 function renderAlbum(album) {
   console.log('rendering album:', album);
+
+  // var addSongs = buildSongsHtml(album.songs);
+  // console.log(addSongs);
+
 
   var albumHtml =
   "        <!-- one album -->" +
@@ -89,6 +111,7 @@ function renderAlbum(album) {
   "                        <h4 class='inline-header'>Released date:</h4>" +
   "                        <span class='album-releaseDate'>" + album.releaseDate + "</span>" +
   "                      </li>" +
+  buildSongsHtml(album.songs); +
   "                    </ul>" +
   "                  </div>" +
   "                </div>" +
@@ -99,4 +122,5 @@ function renderAlbum(album) {
   // render to the page with jQuery 
 
  $('#albums').append(albumHtml);
+ 
  }

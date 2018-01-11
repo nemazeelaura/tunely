@@ -64,13 +64,13 @@ app.post('/api/albums', function update_album(req, res) {
       artistName: req.body.artistName,
       name: req.body.artistName,
       releaseDate: req.body.releaseDate,
-      genres: [ '', '', '' ]
+      genres: [ '', '', '' ],
+      
 
   });
 
   console.log('should newPost');
   console.log(newAlbum);
-
     
  });
 
